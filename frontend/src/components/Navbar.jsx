@@ -21,6 +21,7 @@ const Header = () => {
               src={toggle ? svg.cross : svg.hamburger}
               alt="toogle_navbar"
               width={30}
+              className="transition-all"
             />
           </div>
 
@@ -31,7 +32,7 @@ const Header = () => {
             } lg:block`}
           >
             <div className="mt-20 lg:mt-0 flex lg:flex-row flex-col gap-8 items-center">
-              <ul className="flex lg:flex-row flex-col lg:gap-5 gap-10 lg:text-md">
+              <ul className="flex lg:flex-row flex-col lg:gap-5 gap-10 lg:text-md text-center">
                 <Link to="/">
                   <li
                     className={`${
