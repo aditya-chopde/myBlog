@@ -7,7 +7,7 @@ const Header = () => {
 
   return (
     <>
-      <nav className="font-poppins my-8">
+      <nav className="font-poppins my-5">
         <div className="flex flex-row justify-around items-center relative">
           {/* Logo  */}
           <div className="cursor-pointer" onClick={() => setCurrent("home")}>
