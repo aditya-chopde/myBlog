@@ -63,21 +63,6 @@ const Header = () => {
                     About
                   </li>
                 </Link>
-                <Link to="policy">
-                  <li
-                    className={`${
-                      current == "policy"
-                        ? "lg:border-b-[3px] lg:border-purple-600"
-                        : ""
-                    } cursor-pointer transition-all`}
-                    onClick={() => {
-                      setCurrent("policy");
-                      setToggle(false);
-                    }}
-                  >
-                    Privacy Policy
-                  </li>
-                </Link>
                 <Link to="contact">
                   <li
                     className={`${
