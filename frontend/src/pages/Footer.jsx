@@ -5,7 +5,7 @@ import { svg } from "../assets/svgs";
 const Footer = () => {
   return (
     <>
-      <div className="flex flex-row mx-52 justify-between py-5 px-10 items-center border-t-2">
+      <div className="flex flex-row mx-52 justify-between py-5 px-10 items-center border-t-2 my-5">
         <Link to="/">
           <h1 className="font-bold text-[55px] text-purple-600">myBlogs</h1>
         </Link>

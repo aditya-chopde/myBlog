@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { svg } from "../assets/svgs";
+import {StoreContext} from "../context/StoreContext"
+
 const Header = () => {
-  const [current, setCurrent] = useState("home");
+  // const [current, setCurrent] = useState("home")
+  const { current, setCurrent } = useContext(StoreContext);
   const [toggle, setToggle] = useState(false);
 
   return (
@@ -71,8 +74,8 @@ const Header = () => {
                         : ""
                     } cursor-pointer transition-all`}
                     onClick={() => {
-                      setCurrent("contact")
-                      setToggle(false)
+                      setCurrent("contact");
+                      setToggle(false);
                     }}
                   >
                     Contact Us
@@ -82,8 +85,8 @@ const Header = () => {
               <button
                 className="bg-purple-600 text-white px-5 py-2 rounded-lg hover:rounded cursor-pointer"
                 onClick={() => {
-                  setCurrent("")
-                  setToggle(false)
+                  setCurrent("");
+                  setToggle(false);
                 }}
               >
                 Subscribe

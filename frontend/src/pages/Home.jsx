@@ -6,7 +6,6 @@ import Labels from "../components/Labels";
 import PopularPosts from "../components/PopularPosts";
 import RecentPosts from "../components/RecentPosts";
 import Trending from "../components/Trending";
-import Footer from "./Footer";
 import GoToTopButton from "../components/GoToTopButton";
 
 const Home = () => {
@@ -32,10 +31,9 @@ const Home = () => {
         </div>
       </main>
 
-      <footer className="font-poppins">
-        <Footer/>
+      <div className="font-poppins">
         <GoToTopButton/>
-      </footer>
+      </div>
     </>
   );
 };
