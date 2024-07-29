@@ -26,7 +26,19 @@ async function showPosts(req, res){
     }
 }
 
+async function handleSinglePost(req, res){
+    try{
+        const id = req.params.id;
+        const showPost = await Post.findById(id);
+        res.json({success: true, post: showPost})
+
+    }catch(err){
+        res.json({success: true, message: "Error Occurred", error: err})
+    }
+}
+
 module.exports = {
     handleCreatePost,
     showPosts,
+    handleSinglePost,
 }
