@@ -10,6 +10,8 @@ import twitter from "./twitter.svg"
 import linkedin from "./linkedin.svg"
 import instagram from './insta.svg'
 import right from "./right.svg"
+import about from "./about-us.png"
+import contact from "./contact-us.png"
 
 export const svg = {
     hamburger,
@@ -27,4 +29,6 @@ export const images = {
     image_3,
     image_4,
     image_5,
+    about,
+    contact,
 }
