@@ -5,7 +5,7 @@ const About = () => {
   return (
     <>
       <div className="flex flex-col justify-center items-center">
-        <h1 className="text-3xl font-bold text-center mb-10">About Us</h1>
+        <h1 className="text-4xl font-bold text-center mb-10">About Us</h1>
         <div className="w-[1000px]">
           <div>
             <div className="flex flex-row justify-center items-center gap-10 text-md">

@@ -82,6 +82,7 @@ const Header = () => {
                   </li>
                 </Link>
               </ul>
+              <Link to="/subscribe">
               <button
                 className="bg-purple-600 text-white px-5 py-2 rounded-lg hover:rounded cursor-pointer"
                 onClick={() => {
@@ -91,6 +92,7 @@ const Header = () => {
               >
                 Subscribe
               </button>
+              </Link>
             </div>
           </div>
         </div>

@@ -12,6 +12,7 @@ import instagram from './insta.svg'
 import right from "./right.svg"
 import about from "./about-us.png"
 import contact from "./contact-us.png"
+import sub from './subscribe.png'
 
 export const svg = {
     hamburger,
@@ -31,4 +32,5 @@ export const images = {
     image_5,
     about,
     contact,
+    sub,
 }
