@@ -42,7 +42,6 @@ const Contact = () => {
             <h3 className="font-bold text-lg">Enter Message:</h3>
             <textarea className="my-3 px-2 py-1 border-[1px] border-black w-full" name="message" required type="text" />
             <input type="submit"  className="bg-purple-600 px-10 py-2 rounded-lg hover:rounded-sm text-white w-full mt-3" value={result}/>
-            {/* <span>{result}</span> */}
           </form>
 
           <div>
