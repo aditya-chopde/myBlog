@@ -1,4 +1,5 @@
 import Emails from "./components/Emails";
+import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Options from "./components/Options";
 import Posts from "./components/Posts";
@@ -12,6 +13,9 @@ function App() {
         {/* <Posts/> */}
         <Emails/>
       </div>
+      <footer>
+        <Footer/>
+      </footer>
     </>
   );
 }
