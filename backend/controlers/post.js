@@ -5,7 +5,6 @@ async function handleCreatePost(req, res){
         const body = req.body;
         const createPost = await Post.create({
             title: body.title,
-            description: body.description,
             content: body.content,
             time:  new Date().toLocaleString('en-GB', { timeZone: 'UTC' })
         })

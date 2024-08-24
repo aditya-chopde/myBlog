@@ -1,6 +1,17 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { BlogContext } from "../context/BlogContext";
+import axios from "axios";
 
 const Emails = () => {
+  const [data, setData] = useState([]);
+  const { url } = useContext(BlogContext);
+
+  useEffect(() => {
+    axios.get(`${url}/email/allemails`).then((response) => {
+      setData(response.data);
+    });
+  }, []); 
+
   return (
     <>
       <div className="my-8">
@@ -11,28 +22,16 @@ const Emails = () => {
             <thead>
               <tr className="border border-black">
                 <th className="border border-black">Name</th>
-                <th>Email</th>
+                <th className="border border-black">Email</th>
               </tr>
             </thead>
             <tbody>
-              <tr className="border border-black">
-                <td className="border border-black px-5">Aditya Chopde</td>
-                <td className="border border-black px-5">
-                  its.adityac@gmail.com
-                </td>
-              </tr>
-              <tr className="border border-black">
-                <td className="border border-black px-5">Aditya Chopde</td>
-                <td className="border border-black px-5">
-                  its.adityac@gmail.com
-                </td>
-              </tr>
-              <tr className="border border-black">
-                <td className="border border-black px-5">Aditya Chopde</td>
-                <td className="border border-black px-5">
-                  its.adityac@gmail.com
-                </td>
-              </tr>
+              {data.map((item) => (
+                <tr key={item._id} className="border border-black">
+                  <td className="border border-black px-5">{item.name}</td>
+                  <td className="border border-black px-5">{item.email}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>

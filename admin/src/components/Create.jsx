@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Editor from "./Editor";
+import { BlogContext } from "../context/BlogContext";
+import axios from 'axios';
 
 function Create() {
-  const [postContent, setPostContent] = useState("");
+  const {url} = useContext(BlogContext)
+  const [content, setContent] = useState("");
   const [title, setTitle] = useState(" ");
 
   const handleContentChange = (content) => {
-    setPostContent(content);
+    setContent(content);
   };
 
   const handleTitleChange = (e) => {
@@ -15,9 +18,12 @@ function Create() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    axios.post(url+"/post/create", {title, content}).then((response)=>{
+      console.log(response)
+    })
     // Handle form submission logic (e.g., send `postContent` to the server)
     console.log("Post Title: ", title)
-    console.log("Post Content:", postContent);
+    console.log("Post Content:", content);
   };
 
   return (

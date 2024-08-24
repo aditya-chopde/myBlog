@@ -1,0 +1,5 @@
+/post/create - to create post
+/post/allposts - show all posts
+/post/:id - a particular post 
+/email/add - add a new email
+/email/allemails - get all emails
