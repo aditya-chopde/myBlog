@@ -9,10 +9,15 @@ const Subscribe = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     const url = "http://localhost:3000/email/add";
-    const data = axios.post(url, {
+    axios.post(url, {
       name, 
       email,
+    }).then((response)=>{
+      alert(response.data.message)
     })
+
+    document.getElementById("input_name").value = " ";
+    document.getElementById("input_email").value = " ";
   };
 
   return (
@@ -30,6 +35,7 @@ const Subscribe = () => {
                 name="name"
                 required
                 type="text"
+                id="input_name"
                 onChange={(e) => {
                   setName(e.target.value);
                 }}
@@ -40,6 +46,7 @@ const Subscribe = () => {
                 name="email"
                 required
                 type="text"
+                id="input_email"
                 onChange={(e) => {
                   setEmail(e.target.value);
                 }}
