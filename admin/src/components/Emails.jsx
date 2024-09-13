@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { BlogContext } from "../context/BlogContext";
 import axios from "axios";
+import { svg } from "../assets/svgs";
 
 const Emails = () => {
   const [data, setData] = useState([]);
@@ -10,7 +11,7 @@ const Emails = () => {
     axios.get(`${url}/email/allemails`).then((response) => {
       setData(response.data);
     });
-  }, []); 
+  }, []);
 
   return (
     <>
@@ -30,6 +31,13 @@ const Emails = () => {
                 <tr key={item._id} className="border border-black">
                   <td className="border border-black px-5">{item.name}</td>
                   <td className="border border-black px-5">{item.email}</td>
+                  <div className="items-center flex justify-center py-2">
+                    <img
+                      src={svg.delete_svg}
+                      alt="delete_email"
+                      className="w-5 transition-all hover:scale-110"
+                    />
+                  </div>
                 </tr>
               ))}
             </tbody>

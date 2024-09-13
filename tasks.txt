@@ -1,0 +1,15 @@
+Remaining Tasks :
+client: 
+show posts on the home page
+show featured posts
+add labels
+show recent posts
+show popular posts
+can see a particular post
+read more option
+
+admin: 
+can delete a particular post
+can delete an email
+can add images to the posts
+can edit a post 

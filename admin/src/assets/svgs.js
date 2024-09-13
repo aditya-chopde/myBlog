@@ -13,6 +13,9 @@ import right from "./right.svg"
 import about from "./about-us.png"
 import contact from "./contact-us.png"
 import sub from './subscribe.png'
+import delete_svg from './delete.svg'
+import edit from './edit.svg'
+import view from './view.svg'  
 
 export const svg = {
     hamburger,
@@ -22,6 +25,9 @@ export const svg = {
     twitter,
     linkedin,
     right,
+    delete_svg,
+    edit,
+    view,
 }
 
 export const images = {

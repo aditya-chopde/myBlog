@@ -20,8 +20,8 @@ function Create() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post(url+"/post/create", {title, content}).then((response)=>{
-      console.log(response)
+    axios.post(url+"/post/create", {title, content}).catch((error)=>{
+      alert("An Error Occurrecd")
     })
     // Handle form submission logic (e.g., send `postContent` to the server)
     console.log("Post Title: ", title)
