@@ -1,4 +1,6 @@
+const path = require("path");
 const Post = require("../models/post");
+const fs = require('fs')
 
 async function handleCreatePost(req, res) {
     try {
@@ -11,7 +13,7 @@ async function handleCreatePost(req, res) {
             time: new Date().toLocaleString('en-GB', { timeZone: 'UTC' })
         })
 
-        res.json({ success: true, message: "Post Created Successfully", Post: createPost})
+        res.json({ success: true, message: "Post Created Successfully", Post: createPost })
     } catch (err) {
         res.json({ success: false, message: "Error Occurred", error: err })
     }
@@ -37,8 +39,26 @@ async function handleSinglePost(req, res) {
     }
 }
 
+async function handelDeletePost(req, res) {
+    try {
+        const id = req.params.id;
+        const deletePost = await Post.findByIdAndDelete(id)
+        const filePath = path.join(__dirname, `../uploads/${deletePost.image_path}`)
+        fs.unlink(filePath, (err)=>{
+            if(err){
+                return res.json({success: false, message: "Error Deleting File"})
+            }
+        })
+        res.json({ success: true, message: "Post Deleted Successfully", deletedPost: deletePost })
+
+    } catch (err) {
+        res.json({ success: false, message: "Error Occurred", error: err })
+    }
+}
+
 module.exports = {
     handleCreatePost,
     showPosts,
     handleSinglePost,
+    handelDeletePost
 }

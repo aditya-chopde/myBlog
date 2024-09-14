@@ -7,6 +7,12 @@ const Posts = () => {
   const [data, setData] = useState([]);
   const { url } = useContext(BlogContext);
 
+  function deletePost(id){
+    axios.post(`${url}/post/delete/${id}`).then((res)=>{
+      console.log(res)
+    })
+  }
+
   function getPosts(){
     axios
       .get(`${url}/post/allposts`)
@@ -55,6 +61,7 @@ const Posts = () => {
                       src={svg.delete_svg}
                       alt="delete_post"
                       className="w-5 transition-all hover:scale-125"
+                      onClick={()=> deletePost(item._id)}
                     />
                     <img
                       src={svg.edit}
