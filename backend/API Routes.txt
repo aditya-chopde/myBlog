@@ -1,5 +1,10 @@
+Posts: 
 /post/create - to create post
 /post/allposts - show all posts
 /post/:id - a particular post 
+/post/delete/:id - to delete a particular post
+
+Emails: 
 /email/add - add a new email
 /email/allemails - get all emails
+/email/delete/:id - to delete a particular email

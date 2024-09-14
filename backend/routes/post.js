@@ -1,9 +1,24 @@
 const express = require("express")
-const Post = require("../models/post");
 const { handleCreatePost, showPosts, handleSinglePost } = require("../controlers/post");
 const router = express()
+const multer = require("multer")
+const path = require('path');
+const Post = require("../models/post");
 
-router.post("/create", handleCreatePost)
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, path.join(__dirname, '../uploads'));
+    },
+    filename: (req, file, cb) => {
+        const uniqueName = `${Date.now()}-${file.originalname}`;
+        cb(null, uniqueName)
+    }
+})
+
+const upload = multer({ storage })
+
+router.post("/create", upload.single('image'), handleCreatePost)
+
 router.get("/allposts", showPosts)
 router.get("/:id", handleSinglePost)
 
