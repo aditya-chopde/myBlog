@@ -13,6 +13,12 @@ const Emails = () => {
     });
   }, []);
 
+  const deletEmail = (id) =>{
+    axios.post(`${url}/email/delete/${id}`).then((res)=>{
+      console.log(res)
+    })
+  }
+
   return (
     <>
       <div className="my-8">
@@ -31,13 +37,14 @@ const Emails = () => {
                 <tr key={item._id} className="border border-black">
                   <td className="border border-black px-5">{item.name}</td>
                   <td className="border border-black px-5">{item.email}</td>
-                  <div className="items-center flex justify-center py-2">
+                  <td className="items-center flex justify-center py-2">
                     <img
                       src={svg.delete_svg}
                       alt="delete_email"
                       className="w-5 transition-all hover:scale-110"
+                      onClick={()=> deletEmail(item._id)}
                     />
-                  </div>
+                  </td>
                 </tr>
               ))}
             </tbody>

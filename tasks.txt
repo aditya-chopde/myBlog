@@ -10,6 +10,6 @@ read more option
 
 admin: 
 can delete a particular post
-can delete an email
+can delete an email - done
 can add images to the posts - done
-can edit a post 
+can edit a post - done
