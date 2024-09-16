@@ -6,14 +6,15 @@ import axios from "axios";
 const Posts = () => {
   const [data, setData] = useState([]);
   const { url } = useContext(BlogContext);
+  const maxLength = 120;
 
-  function deletePost(id){
-    axios.post(`${url}/post/delete/${id}`).then((res)=>{
-      console.log(res)
-    })
+  function deletePost(id) {
+    axios.post(`${url}/post/delete/${id}`).then((res) => {
+      console.log(res);
+    });
   }
 
-  function getPosts(){
+  function getPosts() {
     axios
       .get(`${url}/post/allposts`)
       .then((response) => {
@@ -37,43 +38,47 @@ const Posts = () => {
           {/* Posts */}
           {data.length > 0 ? (
             data.map((item) => (
-              <div key={item._id} className="w-[750px] border border-gray-600 px-3 rounded-lg my-3 flex justify-around">
               <div
-                className="flex flex-row gap-5 my-3 cursor-pointer"
+                key={item._id}
+                className="w-[750px] border border-gray-600 px-3 rounded-lg my-3 flex justify-around"
               >
-                <div>
-                  <img
-                    src={`http://localhost:3000/uploads/${item.image_path}`}
-                    alt="image_1"
-                    className="w-40 rounded-sm"
-                  />
-                  
-                </div>
-                <div className="w-[450px]">
-                  <h1 className="font-bold text-xl hover:text-purple-500">
-                    {item.title}
-                  </h1>
-                  <div dangerouslySetInnerHTML={{ __html: item.content }} />
-                </div>
-              </div>
-                <div className="flex mb-2 gap-3">
+                <div className="flex flex-row gap-5 my-3 cursor-pointer">
+                  <div className="w-40 flex justify-center items-center">
                     <img
-                      src={svg.delete_svg}
-                      alt="delete_post"
-                      className="w-5 transition-all hover:scale-125"
-                      onClick={()=> deletePost(item._id)}
-                    />
-                    <img
-                      src={svg.edit}
-                      alt="delete_post"
-                      className="w-6 transition-all hover:scale-125"
-                    />
-                    <img
-                      src={svg.view}
-                      alt="delete_post"
-                      className="w-6 transition-all hover:scale-125"
+                      src={`http://localhost:3000/uploads/${item.image_path}`}
+                      alt="image_1"
+                      className="w-full h-24 object-cover rounded-sm"
                     />
                   </div>
+                  <div className="w-[450px]">
+                    <h1 className="font-bold text-lg hover:text-purple-500">
+                      {item.title}
+                    </h1>
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: `${item.content.substring(0, maxLength)}.....`,
+                        }}
+                      />
+                  </div>
+                </div>
+                <div className="flex mb-2 gap-3">
+                  <img
+                    src={svg.delete_svg}
+                    alt="delete_post"
+                    className="w-5 transition-all hover:scale-125 cursor-pointer"
+                    onClick={() => deletePost(item._id)}
+                  />
+                  <img
+                    src={svg.edit}
+                    alt="delete_post"
+                    className="w-6 transition-all hover:scale-125 cursor-pointer"
+                  />
+                  <img
+                    src={svg.view}
+                    alt="delete_post"
+                    className="w-6 transition-all hover:scale-125 cursor-pointer"
+                  />
+                </div>
               </div>
             ))
           ) : (
