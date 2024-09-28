@@ -9,7 +9,7 @@ can see a particular post
 read more option
 
 admin: 
-can delete a particular post
+can delete a particular post - done
 can delete an email - done
 can add images to the posts - done
 can edit a post - done

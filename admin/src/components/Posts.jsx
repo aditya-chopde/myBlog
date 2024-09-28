@@ -40,7 +40,7 @@ const Posts = () => {
             data.map((item) => (
               <div
                 key={item._id}
-                className="w-[750px] border border-gray-600 px-3 rounded-lg my-3 flex justify-around"
+                className="w-[750px] border border-gray-600 px-3 rounded-lg my-5 flex justify-around"
               >
                 <div className="flex flex-row gap-5 my-3 cursor-pointer">
                   <div className="w-40 flex justify-center items-center">
