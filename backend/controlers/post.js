@@ -1,5 +1,6 @@
 const path = require("path");
 const Post = require("../models/post");
+const Label = require("../models/label")
 const fs = require('fs')
 
 async function handleCreatePost(req, res) {
@@ -56,9 +57,33 @@ async function handelDeletePost(req, res) {
     }
 }
 
+async function handleCreateLabel(req, res){
+    try{
+        const { labelname } = req.body;
+        const createLabel = await Label.create({
+            labelName: labelname
+        })
+
+        return res.json({success: true, message: "Label created Successfully", label: createLabel});
+    }catch(err){
+        return res.json({success: false, message: "Error Creating Label", error: err.message});
+    }
+}
+
+async function getLabels(req, res){
+    try{
+        const getAllLabels = await Label.find();
+        return res.json({success: true, message: "All Labels Fetched Successfully", Labels: getAllLabels});
+    }catch(err){
+        return res.json({success: false, message: "Error Fetching Labels", error: err.message})
+    }
+}
+
 module.exports = {
     handleCreatePost,
     showPosts,
     handleSinglePost,
-    handelDeletePost
+    handelDeletePost,
+    handleCreateLabel,
+
 }

@@ -18,6 +18,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage })
 
 router.post("/create", upload.single('image'), handleCreatePost)
+router.post("/create-label", )
 router.post("/delete/:id", handelDeletePost)
 router.get("/allposts", showPosts)
 router.get("/:id", handleSinglePost)

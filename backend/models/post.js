@@ -9,6 +9,10 @@ const PostSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    label: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true
+    },
     content: {
         type: String,
         required: true

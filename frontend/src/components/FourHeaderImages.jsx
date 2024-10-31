@@ -6,7 +6,7 @@ const FourHeaderImages = () => {
     <>
       <div className="lg:flex lg:flex-col gap-3">
         <div className="flex lg:flex-row flex-col gap-3">
-          <div className="relative text-left text-white cursor-pointer transition-all hover:scale-95 w-[250px]">
+          <div className="relative text-left text-white cursor-pointer transition-all hover:scale-95 w-[275px]">
             <img
               src={`${getData[1].image_path}`}
               alt="image_2"
@@ -17,7 +17,7 @@ const FourHeaderImages = () => {
               {getData[1].title}
             </div>
           </div>
-          <div className="relative text-left text-white cursor-pointer transition-all hover:scale-95 w-[250px]">
+          <div className="relative text-left text-white cursor-pointer transition-all hover:scale-95 w-[275px]">
             <img
               src={`${getData[2].image_path}`}
               alt="image_2"
@@ -30,7 +30,7 @@ const FourHeaderImages = () => {
           </div>
         </div>
         <div className="lg:flex lg:flex-row gap-3 hidden lg:static">
-          <div className="relative text-left text-white cursor-pointer transition-all hover:scale-95 w-[250px]">
+          <div className="relative text-left text-white cursor-pointer transition-all hover:scale-95 w-[275px]">
             <img
               src={`${getData[3].image_path}`}
               alt="image_2"
@@ -41,7 +41,7 @@ const FourHeaderImages = () => {
               {getData[3].title}
             </div>
           </div>
-          <div className="relative text-left text-white cursor-pointer transition-all hover:scale-95 w-[250px]">
+          <div className="relative text-left text-white cursor-pointer transition-all hover:scale-95 w-[275px]">
             <img
               src={`${getData[4].image_path}`}
               alt="image_2"
