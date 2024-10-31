@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { images } from "../assets/svgs";
 
 const FeaturedPosts = () => {
+  
   return (
     <>
       <div>

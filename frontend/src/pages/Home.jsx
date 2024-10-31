@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import MainHeaderImage from "../components/MainHeaderImage";
 import FourHeaderImages from "../components/FourHeaderImages";
 import FeaturedPosts from "../components/FeaturedPosts";
@@ -7,13 +7,31 @@ import PopularPosts from "../components/PopularPosts";
 import RecentPosts from "../components/RecentPosts";
 import Trending from "../components/Trending";
 import GoToTopButton from "../components/GoToTopButton";
+import { StoreContext } from "../context/StoreContext";
+import axios from "axios";
 
 const Home = () => {
+  const [data, setData] = useState([]);
+  const { url } = useContext(StoreContext)
+  
+  async function getPosts(){
+    axios.get(`${url}/post/allposts`).then((res)=>{
+      const allPosts = res.data.posts;
+      const reverseData = allPosts.reverse();
+      setData(reverseData)
+      localStorage.setItem("data", JSON.stringify(reverseData));
+    })
+  }
+
+  useEffect(() => {
+    getPosts()
+  }, [])
+  
   return (
     <>
       <header className="mb-5 mt-8">
         <div className="flex lg:flex-row flex-col lg:gap-5 gap-3 justify-center items-center">
-          <MainHeaderImage />
+          <MainHeaderImage/>
           <FourHeaderImages />
         </div>
       </header>

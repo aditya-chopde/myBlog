@@ -3,7 +3,7 @@ import { images, svg } from "../assets/svgs";
 import { BlogContext } from "../context/BlogContext";
 import axios from "axios";
 
-const Posts = () => {
+const   Posts = () => {
   const [data, setData] = useState([]);
   const { url } = useContext(BlogContext);
   const maxLength = 120;
@@ -45,7 +45,7 @@ const Posts = () => {
                 <div className="flex flex-row gap-5 my-3 cursor-pointer">
                   <div className="w-40 flex justify-center items-center">
                     <img
-                      src={`http://localhost:3000/uploads/${item.image_path}`}
+                      src={`${item.image_path}`}
                       alt="image_1"
                       className="w-full h-24 object-cover rounded-sm"
                     />

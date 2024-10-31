@@ -5,7 +5,7 @@ const fs = require('fs')
 async function handleCreatePost(req, res) {
     try {
         const { title, content } = req.body;
-        const imagePath = req.file.filename;
+        const imagePath = `http://localhost:3000/uploads/${req.file.filename}`;
         const createPost = await Post.create({
             title: title,
             image_path: imagePath,
