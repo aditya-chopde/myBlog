@@ -85,5 +85,5 @@ module.exports = {
     handleSinglePost,
     handelDeletePost,
     handleCreateLabel,
-
+    getLabels,
 }
