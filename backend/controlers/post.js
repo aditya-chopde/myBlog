@@ -5,11 +5,12 @@ const fs = require('fs')
 
 async function handleCreatePost(req, res) {
     try {
-        const { title, content } = req.body;
+        const { title, content, labelName } = req.body;
         const imagePath = `http://localhost:3000/uploads/${req.file.filename}`;
         const createPost = await Post.create({
             title: title,
             image_path: imagePath,
+            label: labelName,
             content: content,
             time: new Date().toLocaleString('en-GB', { timeZone: 'UTC' })
         })
@@ -60,11 +61,20 @@ async function handelDeletePost(req, res) {
 async function handleCreateLabel(req, res){
     try{
         const { labelname } = req.body;
-        const createLabel = await Label.create({
+        const query = {
             labelName: labelname
-        })
+        }
+        const isExists = await Label.findOne(query)
 
-        return res.json({success: true, message: "Label created Successfully", label: createLabel});
+        if(!isExists){
+            const createLabel = await Label.create({
+                labelName: labelname
+            })
+    
+            return res.json({success: true, message: "Label created Successfully", label: createLabel});
+        }else{
+            return res.json({success: false, message: "Label Already Exists"})
+        }
     }catch(err){
         return res.json({success: false, message: "Error Creating Label", error: err.message});
     }
