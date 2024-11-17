@@ -89,6 +89,20 @@ async function getLabels(req, res){
     }
 }
 
+async function getPostLabel(req, res){
+    try{
+        const { id } = req.params.id;
+        const getPosts = await Post.find({ id })
+        if(!getPosts){
+            return res.json({success: false, message: "No post Found Related to the Label"})
+        }else{
+            return res.json({success: true, message: "Post Fetched Successfuly", number: getPosts.length, Posts: getPosts})
+        }
+    }catch(err){
+        return res.json({success: false, message: "Error Fetching the Posts", error: err.message})
+    }
+}
+
 module.exports = {
     handleCreatePost,
     showPosts,
@@ -96,4 +110,5 @@ module.exports = {
     handelDeletePost,
     handleCreateLabel,
     getLabels,
+    getPostLabel,
 }

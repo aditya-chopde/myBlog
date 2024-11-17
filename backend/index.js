@@ -5,7 +5,6 @@ const cors = require("cors")
 const { connectDb } = require("./connect")
 const post = require("./routes/post")
 const email = require("./routes/email")
-const multer = require("multer")
 
 app.use(cors())
 app.use('/uploads', express.static('uploads'));

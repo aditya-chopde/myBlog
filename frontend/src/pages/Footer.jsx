@@ -35,6 +35,7 @@ const Footer = () => {
             <a
               href="https://www.linkedin.com/in/aditya-chopde-486a102a2/"
               className="font-bold hover:text-purple-600"
+              target="_blank"
             >
               Aditya Chopde
             </a>

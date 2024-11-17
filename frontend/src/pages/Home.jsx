@@ -12,6 +12,7 @@ import axios from "axios";
 
 const Home = () => {
   const [data, setData] = useState([]);
+  const [labelData, setLabelData] = useState([]);
   const { url } = useContext(StoreContext)
   
   async function getPosts(){
@@ -23,8 +24,18 @@ const Home = () => {
     })
   }
 
+  async function getPostLabels(){
+    axios.get(`${url}/post/labels`).then((res)=>{
+      const allLabels = res.data.Labels;
+      const reverseLabels = allLabels.reverse();
+      setLabelData(reverseLabels)
+      localStorage.setItem("labels", JSON.stringify(reverseLabels));
+    })
+  }
+
   useEffect(() => {
     getPosts()
+    getPostLabels()
   }, [])
   
   return (
