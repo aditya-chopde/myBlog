@@ -2,6 +2,9 @@ import React from "react";
 import { images } from "../assets/svgs";
 
 const Trending = () => {
+  const getData = JSON.parse(localStorage.getItem("data"));
+  const data = getData.slice(0, 5);
+  const maxLength = 120;
   return (
     <>
       <div className="my-8">
@@ -9,49 +12,23 @@ const Trending = () => {
           Trending
         </div>
         <div>
-            <div className="my-8 w-[225px] flex flex-col h-fit gap-5">
+          {data.map((item) => (
+            <div key={item._id} className="my-8 w-[225px] flex flex-col h-fit gap-5">
               <div className="w-[225px]">
                 <img
-                  src={images.image_1}
+                  src={item.image_path}
                   alt="feature_image"
                   className="object-cover w-full h-full transition-all cursor-pointer hover:scale-95"
                 />
               </div>
               <div>
                 <h1 className="font-bold text-md cursor-pointer transition-all hover:text-purple-600">
-                  How to center a Div using HTML and Tailwind CSS
+                  {item.title}
                 </h1>
               </div>
             </div>
-            <div className="my-8 w-[225px] flex flex-col h-fit gap-5">
-              <div className="w-[225px]">
-                <img
-                  src={images.image_1}
-                  alt="feature_image"
-                  className="object-cover w-full h-full transition-all cursor-pointer hover:scale-95"
-                />
-              </div>
-              <div>
-                <h1 className="font-bold text-md cursor-pointer transition-all hover:text-purple-600">
-                  How to center a Div using HTML and Tailwind CSS
-                </h1>
-              </div>
-            </div>
-            <div className="my-8 w-[225px] flex flex-col h-fit gap-5">
-              <div className="w-[225px]">
-                <img
-                  src={images.image_1}
-                  alt="feature_image"
-                  className="object-cover w-full h-full transition-all cursor-pointer hover:scale-95"
-                />
-              </div>
-              <div>
-                <h1 className="font-bold text-md cursor-pointer transition-all hover:text-purple-600">
-                  How to center a Div using HTML and Tailwind CSS
-                </h1>
-              </div>
-            </div>
-          </div>
+          ))}
+        </div>
       </div>
     </>
   );

@@ -12,7 +12,7 @@ const RecentPosts = () => {
           Recent
         </div>
         {data.map((item) => (
-          <div className="my-10 w-[800px] flex flex-row h-fit gap-5">
+          <div key={item._id} className="my-10 w-[800px] flex flex-row h-fit gap-5">
             <div className="w-[250px]">
               <img
                 src={item.image_path}
