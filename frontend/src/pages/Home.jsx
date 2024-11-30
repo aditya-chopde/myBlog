@@ -13,36 +13,36 @@ import axios from "axios";
 const Home = () => {
   const [data, setData] = useState([]);
   const [labelData, setLabelData] = useState([]);
-  const { url } = useContext(StoreContext)
-  
-  async function getPosts(){
-    axios.get(`${url}/post/allposts`).then((res)=>{
+  const { url } = useContext(StoreContext);
+
+  async function getPosts() {
+    axios.get(`${url}/post/allposts`).then((res) => {
       const allPosts = res.data.posts;
       const reverseData = allPosts.reverse();
-      setData(reverseData)
+      setData(reverseData);
       localStorage.setItem("data", JSON.stringify(reverseData));
-    })
+    });
   }
 
-  async function getPostLabels(){
-    axios.get(`${url}/post/labels`).then((res)=>{
+  async function getPostLabels() {
+    axios.get(`${url}/post/labels`).then((res) => {
       const allLabels = res.data.Labels;
       const reverseLabels = allLabels.reverse();
-      setLabelData(reverseLabels)
+      setLabelData(reverseLabels);
       localStorage.setItem("labels", JSON.stringify(reverseLabels));
-    })
+    });
   }
 
   useEffect(() => {
-    getPosts()
-    getPostLabels()
-  }, [])
-  
+    getPosts();
+    getPostLabels();
+  }, []);
+
   return (
     <>
       <header className="mb-5 mt-8">
         <div className="flex lg:flex-row flex-col lg:gap-5 gap-3 justify-center items-center">
-          <MainHeaderImage/>
+          <MainHeaderImage />
           <FourHeaderImages />
         </div>
       </header>
@@ -61,7 +61,7 @@ const Home = () => {
       </main>
 
       <div className="font-poppins">
-        <GoToTopButton/>
+        <GoToTopButton />
       </div>
     </>
   );

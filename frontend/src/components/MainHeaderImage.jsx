@@ -1,14 +1,15 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const MainHeaderImage = () => {
   const getData = JSON.parse(localStorage.getItem("data"))
+  const navigate = useNavigate();
   return (
     <>
       <div
         className="relative text-left text-white cursor-pointer transition-all hover:scale-95 w-[300px] lg:w-[515px] lg:h-[325px]"
         onClick={() => {
-          setCurrent("")
-          navigate("/blog/:id");
+          navigate(`/post/${getData[0]._id}`);
         }}
       >
         <img

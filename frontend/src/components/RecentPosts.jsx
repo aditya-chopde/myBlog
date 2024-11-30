@@ -1,8 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import { images } from "../assets/svgs";
 import React from "react";
 
 const RecentPosts = () => {
   const getData = JSON.parse(localStorage.getItem("data"));
+  const navigate = useNavigate()
   const data = getData.slice(0, 5);
   const maxLength = 120;
   return (
@@ -12,7 +14,10 @@ const RecentPosts = () => {
           Recent
         </div>
         {data.map((item) => (
-          <div key={item._id} className="my-10 w-[800px] flex flex-row h-fit gap-5">
+          <div key={item._id} className="my-10 w-[800px] flex flex-row h-fit gap-5"
+          onClick={() => {
+            navigate(`/post/${item._id}`);
+          }}>
             <div className="w-[250px]">
               <img
                 src={item.image_path}

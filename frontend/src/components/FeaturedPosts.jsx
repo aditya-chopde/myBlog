@@ -1,8 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import { images } from "../assets/svgs";
+import { useNavigate } from "react-router-dom";
 
 const FeaturedPosts = () => {
   const getData = JSON.parse(localStorage.getItem("data"));
+  const navigate = useNavigate();
   const data = getData.slice(0, 5);
   const data2 = data.slice(0, 4);
   const maxLength = 120;
@@ -13,7 +15,12 @@ const FeaturedPosts = () => {
           Featured
         </div>
         <div className="flex flex-row gap-8">
-          <div className="my-10 w-[250px]">
+          <div
+            className="my-10 w-[250px]"
+            onClick={() => {
+              navigate(`/post/${getData[4]._id}`);
+            }}
+          >
             <div className="w-[250px]">
               <img
                 src={data[4].image_path}
@@ -35,7 +42,13 @@ const FeaturedPosts = () => {
           </div>
           <div>
             {data2.map((item) => (
-              <div key={item._id} className="my-10 w-[500px] flex flex-row h-fit gap-5">
+              <div
+                key={item._id}
+                className="my-10 w-[500px] flex flex-row h-fit gap-5"
+                onClick={() => {
+                  navigate(`/post/${item._id}`);
+                }}
+              >
                 <div className="w-[150px]">
                   <img
                     src={item.image_path}

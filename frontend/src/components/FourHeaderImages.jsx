@@ -1,12 +1,18 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const FourHeaderImages = () => {
   const getData = JSON.parse(localStorage.getItem("data"));
+  const navigate = useNavigate()
+
   return (
     <>
       <div className="lg:flex lg:flex-col gap-3">
         <div className="flex lg:flex-row flex-col gap-3">
-          <div className="relative text-left text-white cursor-pointer transition-all hover:scale-95 w-[275px]">
+          <div className="relative text-left text-white cursor-pointer transition-all hover:scale-95 w-[275px]"
+          onClick={() => {
+            navigate(`/post/${getData[1]._id}`);
+          }}>
             <img
               src={`${getData[1].image_path}`}
               alt="image_2"
@@ -17,7 +23,10 @@ const FourHeaderImages = () => {
               {getData[1].title}
             </div>
           </div>
-          <div className="relative text-left text-white cursor-pointer transition-all hover:scale-95 w-[275px]">
+          <div className="relative text-left text-white cursor-pointer transition-all hover:scale-95 w-[275px]"
+          onClick={() => {
+            navigate(`/post/${getData[2]._id}`);
+          }}>
             <img
               src={`${getData[2].image_path}`}
               alt="image_2"
@@ -30,7 +39,10 @@ const FourHeaderImages = () => {
           </div>
         </div>
         <div className="lg:flex lg:flex-row gap-3 hidden lg:static">
-          <div className="relative text-left text-white cursor-pointer transition-all hover:scale-95 w-[275px]">
+          <div className="relative text-left text-white cursor-pointer transition-all hover:scale-95 w-[275px]"
+          onClick={() => {
+            navigate(`/post/${getData[3]._id}`);
+          }}>
             <img
               src={`${getData[3].image_path}`}
               alt="image_2"
@@ -41,7 +53,10 @@ const FourHeaderImages = () => {
               {getData[3].title}
             </div>
           </div>
-          <div className="relative text-left text-white cursor-pointer transition-all hover:scale-95 w-[275px]">
+          <div className="relative text-left text-white cursor-pointer transition-all hover:scale-95 w-[275px]"
+          onClick={() => {
+            navigate(`/post/${getData[4]._id}`);
+          }}>
             <img
               src={`${getData[4].image_path}`}
               alt="image_2"

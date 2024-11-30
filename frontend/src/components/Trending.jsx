@@ -1,8 +1,10 @@
 import React from "react";
 import { images } from "../assets/svgs";
+import { useNavigate } from "react-router-dom";
 
 const Trending = () => {
   const getData = JSON.parse(localStorage.getItem("data"));
+  const navigate = useNavigate()
   const data = getData.slice(0, 5);
   const maxLength = 120;
   return (
@@ -13,7 +15,10 @@ const Trending = () => {
         </div>
         <div>
           {data.map((item) => (
-            <div key={item._id} className="my-8 w-[225px] flex flex-col h-fit gap-5">
+            <div key={item._id} className="my-8 w-[225px] flex flex-col h-fit gap-5"
+            onClick={() => {
+              navigate(`/post/${item._id}`);
+            }}>
               <div className="w-[225px]">
                 <img
                   src={item.image_path}
