@@ -1,4 +1,3 @@
-import { images } from "../assets/svgs";
 import React from "react";
 
 const PopularPosts = () => {
